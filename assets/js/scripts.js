@@ -12,8 +12,12 @@
 
  // 5 random numbers from 1 to 100
 
+// reference
+
 var cpuArray = [];
 var cpuNumber = [];
+var userArray = [];
+var gameArray = [];
 
 
 while ( cpuArray.length < 5 ) {
@@ -29,31 +33,9 @@ alert('Prova a ricordare questi numeri: ' + cpuArray);
 
 // 30 second timer
 
-var time = 1000;
+var time = 300 * 100;
 
-setTimeout ( fivePrompt, time);
-
-
-
-
-
-
-
-
-
-
-
-// random number function
-function getRandomNumber (min, max) {
-    
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-// prompt 5 numbers function
-
-function fivePrompt () {
-    
-    var userArray = [];
+setTimeout ( function() {
 
     alert('Tempo scaduto!');
 
@@ -74,7 +56,38 @@ function fivePrompt () {
             userArray.push(userNumber);
         }
 
-
     }
-    console.log(userArray);
+
+    for ( var i = 0; i < cpuArray.length; i++) {
+        var results = userArray[i];
+        
+        if ( cpuArray.includes(results) ) {
+            gameArray.push(results);
+        }
+    }
+
+    //feedback
+
+    console.log('I numeri scelti sono: ', userArray);
+    console.log('Hai ricordato:',  gameArray.length, 'numeri');
+    
+}, time );
+
+
+
+
+
+
+
+
+
+
+
+// random number function
+function getRandomNumber (min, max) {
+    
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+
+
