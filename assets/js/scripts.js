@@ -29,11 +29,9 @@ alert('Prova a ricordare questi numeri: ' + cpuArray);
 
 // 30 second timer
 
-var time = 30 * 1000;
+var time = 1000;
 
-setTimeout ( function() {
-    alert('Tempo scaduto!');
-}, time)
+setTimeout ( fivePrompt, time);
 
 
 
@@ -49,4 +47,34 @@ setTimeout ( function() {
 function getRandomNumber (min, max) {
     
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// prompt 5 numbers function
+
+function fivePrompt () {
+    
+    var userArray = [];
+
+    alert('Tempo scaduto!');
+
+    while ( userArray.length < 5 ) {
+        var userNumber = parseInt( prompt('Inserisci i numeri') );
+
+        //  validation
+    
+        while ( (userNumber < 1 || userNumber > 100) || isNaN(userNumber) ) {
+            userNumber = parseInt(prompt('Inserisci solo numeri da 1 a 100'));
+        }
+
+        // check that the user does not enter the same number
+
+        if (userArray.includes(userNumber) == true) {
+            alert('Hai già scelto questo numero, inserisci un altro!');
+        } else {
+            userArray.push(userNumber);
+        }
+
+
+    }
+    console.log(userArray);
 }
