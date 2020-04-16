@@ -68,8 +68,8 @@ setTimeout ( function() {
 
     //feedback
 
-    console.log('I numeri scelti sono: ', userArray);
-    console.log('Hai ricordato:',  gameArray.length, 'numeri');
+    console.log('I numeri scelti da te sono: ', userArray);
+    console.log('Hai ricordato:',  gameArray.length, 'numeri','\n i numeri giusti sono:', gameArray);
     
 }, time );
 
